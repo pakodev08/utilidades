@@ -25,6 +25,12 @@ let enparalelovzlaVar: ItemData = $state({
     symbol: '',
     color: '',
  });
+ let binanceVar: ItemData = $state({
+    image: '',
+    price: '',
+    symbol: '',
+    color: '',
+ });
 
 	let dataDollar = $state({});
 
@@ -37,12 +43,13 @@ let enparalelovzlaVar: ItemData = $state({
 
 		dataDollar = monitors;
 
-		const { promedio, bcv, enparalelovzla } = dataDollar;
+		const { promedio, bcv, enparalelovzla, binance } = dataDollar;
 
 		promedioVar = promedio;
 		console.log(promedioVar, `PROMEDIO`);
 		bcvVar = bcv;
 		enparalelovzlaVar = enparalelovzla;
+        binanceVar = binance;
 	});
 </script>
 
@@ -88,6 +95,18 @@ let enparalelovzlaVar: ItemData = $state({
                 <section class="box-price flex items-center p-1">
                     <p class="p-1 text-amber-100">{enparalelovzlaVar.price} Bs</p>
                     <p style={`color: ${enparalelovzlaVar.color}`}>{enparalelovzlaVar.symbol}</p>
+                </section>
+            </section>
+
+            <section class="box-cu box flex items-center justify-between">
+                <figure>
+                    <p class="text-center text-amber-50">Binance</p>
+                    <img src={binanceVar.image} alt="Dolar paralelo" height="30px" width="80px" />
+                </figure>
+    
+                <section class="box-price flex items-center p-1">
+                    <p class="p-1 text-amber-100">{binanceVar.price} Bs</p>
+                    <p style={`color: ${binanceVar.color}`}>{binanceVar.symbol}</p>
                 </section>
             </section>
         </section>
