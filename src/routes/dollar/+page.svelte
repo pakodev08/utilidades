@@ -5,6 +5,7 @@
     price: string;
     symbol: string;
     color: string;
+    title: string;
  }
     
  let promedioVar: ItemData = $state({
@@ -12,25 +13,33 @@
     price: '',
     symbol: '',
     color: '',
+    title: '',
  });
 let bcvVar: ItemData = $state({
     image: '',
     price: '',
     symbol: '',
     color: '',
+    title: '',
  });
 let enparalelovzlaVar: ItemData = $state({
     image: '',
     price: '',
     symbol: '',
     color: '',
+    title: '',
  });
  let binanceVar: ItemData = $state({
     image: '',
     price: '',
     symbol: '',
     color: '',
+    title: '',
  });
+
+ let miData = $state([
+
+ ]);
 
 	let dataDollar = $state({});
 
@@ -43,13 +52,17 @@ let enparalelovzlaVar: ItemData = $state({
 
 		dataDollar = monitors;
 
-		const { promedio, bcv, enparalelovzla, binance } = dataDollar;
+		const { bcv, promedio, enparalelovzla, binance } = dataDollar;
 
 		promedioVar = promedio;
-		console.log(promedioVar, `PROMEDIO`);
 		bcvVar = bcv;
 		enparalelovzlaVar = enparalelovzla;
         binanceVar = binance;
+
+        promedioVar.image = `https://monitordolarvenezuela.com/img/logos/promedio.webp`;
+
+        miData.push( bcvVar, promedioVar, enparalelovzlaVar, binanceVar);
+
 	});
 </script>
 
@@ -57,7 +70,7 @@ let enparalelovzlaVar: ItemData = $state({
     <a class="volver  p-2 mx-5 " href="/">◀️ Volver</a>
 
     <article class=" mx-auto w-[90%] rounded-2xl bg-sky-500 p-2 my-2 ">
-        <section class="flex flex-col gap-3">
+        <!-- <section class="flex flex-col gap-3">
             <section class="box-cu box flex items-center justify-between">
                 <figure>
                     <p class="text-center text-amber-50">BCV</p>
@@ -109,7 +122,30 @@ let enparalelovzlaVar: ItemData = $state({
                     <p style={`color: ${binanceVar.color}`}>{binanceVar.symbol}</p>
                 </section>
             </section>
+        </section> -->
+
+        <section class="flex flex-col gap-3">
+            {#each miData as item}
+    
+            <section class="box-cu box flex items-center justify-between">
+                <figure>
+                    <p class="text-center text-amber-50">{item.title}</p>
+                    <img src={item.image} alt="dolar a banco central" height="30px" width="80px" />
+                </figure>
+        
+                <section class="box-price flex items-center p-1">
+                    <p class="p-1 text-amber-100">{item.price} Bs</p>
+                    <p style={`color: ${item.color}`}>{item.symbol}</p>
+                </section>
+            </section>
+        
+                 <!-- content here -->
+            {/each}
         </section>
     </article>
+
+
+
+    
     
 </article>
