@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+
+
+:root {
+    --azulito: #0ea5e9;
+    --azulitodos: rgba(13, 162, 231, 0.877);
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0; /* Remove default margin */
+}
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    position: relative;
+}
+header{
+    background: var(--color-sky-500);
+}
+.volver{
+    margin-top: 20px;
+    display: inline-block;
+}
+
+
+.mainwidth{
+    @apply w-[90%] mx-auto;
+}
+
+.maingrid{
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+}
