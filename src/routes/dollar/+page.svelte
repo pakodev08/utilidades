@@ -75,6 +75,27 @@
 
 <article>
 	<a class="volver mx-5 p-2" href="/">◀️ Volver</a>
+    <h1 class="text-center">Calcular</h1>
+	<input 
+		type="number"
+		name=""
+		id=""
+		bind:value={inputCalculador}
+		placeholder="0"
+		class="w-1/2 rounded-md border-2 border-sky-500 p-2 mx-auto block input-number"
+        oninput={handleCalculator}
+	/>
+
+    {#if inputCalculador !== null}
+    <article class="mx-auto my-2 w-[90%] rounded-2xl bg-sky-500 p-2">
+        {#each miData as item}
+        <p class="text-amber-50">Tasa {item.title} {(item.price * inputCalculador).toFixed(2)} Bs</p>
+             <!-- content here -->
+        {/each}
+    </article>
+    
+    
+    {/if}
 
 	<article class=" mx-auto my-2 w-[90%] rounded-2xl bg-sky-500 p-2">
 		<section class="flex flex-col gap-3">
@@ -94,27 +115,7 @@
 		</section>
 	</article>
 
-	<h1 class="text-center">Calcular</h1>
-	<input 
-		type="number"
-		name=""
-		id=""
-		bind:value={inputCalculador}
-		placeholder="0"
-		class="w-1/2 rounded-md border-2 border-sky-500 p-2 mx-auto block input-number"
-        oninput={handleCalculator}
-	/>
 
-    {#if inputCalculador !== null}
-    <article class="mx-auto my-2 w-[90%] rounded-2xl bg-sky-500 p-2">
-        {#each miData as item}
-        <p class="text-amber-950">Tasa {item.title} {(item.price * inputCalculador).toFixed(2)} Bs</p>
-             <!-- content here -->
-        {/each}
-    </article>
-    
-    
-    {/if}
 </article>
 <style>
     .input-number::-webkit-outer-spin-button,
