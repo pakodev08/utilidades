@@ -33,5 +33,3 @@ interface Item {
     {/each}
 
 </article>
-
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, molestias sed. Reprehenderit ab eveniet temporibus voluptatibus culpa. Perferendis, autem optio.</h1>
