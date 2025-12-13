@@ -8,4 +8,4 @@ import '../app.css';
 <Header/>
  
 {@render children()}
-<Footer/>
+<!-- <Footer/> -->

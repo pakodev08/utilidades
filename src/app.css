@@ -7,20 +7,59 @@
 :root {
     --azulito: #0ea5e9;
     --azulitodos: rgba(13, 162, 231, 0.877);
+    --azulclaro50: #ecfeff;
+    --azulclaro100: #cff9fe;
+    --azulclaro200: #a4f1fd;
+    --azulclaro300: #69e6fa;
+    --azulclaro400: #21d0ef;
+    --azulclaro500: #05b3d5;
+    --azulclaro600: #078eb3;
+    --azulclaro700: #0d7191;
+    --azulclaro800: #145c76;
+    --azulclaro900: #164c63;
+    --azulclaro950: #083244;
+    --azuloscuro50: #f3f6fb;
+    --azuloscuro100: #e3ebf6;
+    --azuloscuro200: #ceddef;
+    --azuloscuro300: #acc6e4;
+    --azuloscuro400: #84a9d6;
+    --azuloscuro500: #668dcb;
+    --azuloscuro600: #5375bd;
+    --azuloscuro700: #4864ad;
+    --azuloscuro800: #3a4b81;
+    --azuloscuro900: #374671;
+    --azuloscuro950: #252d46;
+    --rosa50: #fbf6fd;
+    --rosa100: #f7ecfb;
+    --rosa200: #eed8f6;
+    --rosa300: #e2b9ee;
+    --rosa400: #d28fe3;
+    --rosa500: #ba60d1;
+    --rosa600: #a144b5;
+    --rosa700: #863596;
+    --rosa800: #6f2d7b;
+    --rosa900: #5e2a65;
+    --rosa950: #3b1141;
+    --negro700: #4f4f4f;
+    --negro800: #454545;
+    --negro900: #3d3d3d;
+    --negro950: #000000;
 }
 html, body {
     width: 100%;
     height: 100%;
-    margin: 0; /* Remove default margin */
+    margin: 0;
 }
-body{
+header , nav{
+    background: var(--negro950)
+
+}
+/* body{
     display: grid;
-    grid-template-rows: auto 1fr auto; 
+    grid-template-rows: auto 1fr; 
     position: relative;
-}
-header{
-    background: var(--color-sky-500);
-}
+} */
+
 .volver{
     margin-top: 20px;
     display: inline-block;
@@ -28,7 +67,7 @@ header{
 
 
 .mainwidth{
-    @apply w-[90%] mx-auto;
+    @apply w-[90%] mx-auto bg-[var(--negro950)] rounded-2xl p-2;
 }
 
 .maingrid{
