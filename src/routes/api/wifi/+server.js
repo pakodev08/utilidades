@@ -17,8 +17,7 @@ function parseWiFiQR(qrText)
     return null;
   }
 
-  // Extraer los campos S (SSID), T (Type/Security), P (Password)
-  // Los campos pueden estar en cualquier orden
+
   const ssidMatch = qrText.match(/S:([^;]*);?/i);
   const typeMatch = qrText.match(/T:([^;]*);?/i);
   const passwordMatch = qrText.match(/P:([^;]*);?/i);
