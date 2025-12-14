@@ -30,6 +30,10 @@
 	const handleNavClick = (id: number) => {
 		activeView = id;
 	};
+
+	onMount(() => {
+		activeView = itemsShow[0].id;
+	})
 </script>
 
 <!-- <Cafe/> -->
