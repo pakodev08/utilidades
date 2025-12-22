@@ -43,18 +43,22 @@
 	// 	title: ''
 	// });
 
-
-
 	let miData: ItemDataNew[] = $state([]);
 
 	let dataDollar = $state({});
 
 	onMount(async () => {
-		const dollarUrl = `https://ve.dolarapi.com/v1/dolares`;
-		const response = await fetch(dollarUrl);
-		const data = await response.json();
+		try {
+			const dollarUrl = `https://ve.dolarapi.com/v1/dolares`;
+			const response = await fetch(dollarUrl);
+			const data = await response.json();
 
-		miData = data.slice(0, 2);
+			
+
+			miData = data.slice(0, 2);
+		} catch (error) {
+			console.log(error);
+		}
 
 		// const { monitors } = data;
 		// console.log(monitors)
@@ -74,7 +78,6 @@
 	});
 
 	let inputCalculador: number | null = $state(null);
-	
 </script>
 
 <article>
@@ -86,12 +89,11 @@
 		id=""
 		bind:value={inputCalculador}
 		placeholder="0"
-		class="input-number mx-auto block w-1/2 rounded-md border-2  p-2"
-		
+		class="input-number mx-auto block w-1/2 rounded-md border-2 p-2"
 	/>
 
 	{#if inputCalculador !== null}
-		<article class="mainwidth mx-auto my-2 w-[90%] rounded-2xl  p-2">
+		<article class="mainwidth mx-auto my-2 w-[90%] rounded-2xl p-2">
 			{#each miData as item}
 				<p class="text-amber-50">
 					Tasa {item.nombre}

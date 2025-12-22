@@ -3,6 +3,7 @@
 	import Dollar from '$lib/components/Dollar.svelte';
 	import Frao from '$lib/components/Frao.svelte';
 	import QrGenerator from '$lib/components/QrGenerator.svelte';
+	import YtDownloader from '$lib/components/YtDownloader.svelte';
 	import { onMount } from 'svelte';
 
 	interface Item {
@@ -22,7 +23,8 @@
 			path: '/dollar'
 		},
 		{ id: 2, src: '/todo.svg', alt: 'shopping', title: 'Lista de Compras', path: '/shopping' },
-		{ id: 3, src: '/qr.svg', alt: 'qr-generator', title: 'Generador de QR', path: '/qr-generator' }
+		{ id: 3, src: '/qr.svg', alt: 'qr-generator', title: 'Generador de QR', path: '/qr-generator' },
+		{ id: 4, src: '/dw.svg', alt: 'yt-downloader', title: 'Youtube Downloader', path: '/yt-downloader' }
 	]);
 
 	let activeView: number | null = $state(null);
@@ -78,6 +80,8 @@
 
 	{#if activeView === 3}
 		<QrGenerator />
+	{/if}{#if activeView === 4}
+		<YtDownloader />
 	{/if}
 </main>
 

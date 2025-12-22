@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"jimp": "^1.6.0",
-		"jsqr": "^1.4.0"
+		"jsqr": "^1.4.0",
+		"ytdlp-nodejs": "^2.3.5"
 	}
 }
