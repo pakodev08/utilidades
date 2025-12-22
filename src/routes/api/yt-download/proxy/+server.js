@@ -15,12 +15,25 @@ export const POST = async ({ request }) =>
     }
 
     // Resolve yt-dlp binary path
-    const ytDlpPath = path.join(process.cwd(), 'node_modules', 'ytdlp-nodejs', 'bin', 'yt-dlp.exe');
+    const isWindows = process.platform === 'win32';
+    const binaryName = isWindows ? 'yt-dlp.exe' : 'yt-dlp';
+    const ytDlpPath = path.join(process.cwd(), 'node_modules', 'ytdlp-nodejs', 'bin', binaryName);
 
     if (!fs.existsSync(ytDlpPath)) {
         console.error('yt-dlp binary not found at:', ytDlpPath);
+        // Try to find it in the root node_modules if not found in the nested one (hoisting)
+        const altPath = path.join(process.cwd(), '..', 'node_modules', 'ytdlp-nodejs', 'bin', binaryName);
+        if (fs.existsSync(altPath)) {
+            // If found in alt path, use it? For now just log.
+            console.log('Found at alt path:', altPath);
+        }
         throw error(500, 'Internal Server Error: yt-dlp binary not found');
     }
+
+    // Check for Python if not on Windows (Linux binaries often need python3 in env)
+    // Actually, the error "env: 'python3': No such file or directory" confirms it needs python.
+    // We can't easily install python here, but we can provide a better error.
+
 
     const args = [
         '-f', formatId || 'best[vcodec!=none][acodec!=none]', // Ensure we don't try to merge formats
@@ -28,7 +41,7 @@ export const POST = async ({ request }) =>
         url
     ];
 
-    console.log('Spawning yt-dlp with args:', args);
+
 
     const ytDlpProcess = spawn(ytDlpPath, args);
 
