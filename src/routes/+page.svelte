@@ -24,7 +24,13 @@
 		},
 		{ id: 2, src: '/todo.svg', alt: 'shopping', title: 'Lista de Compras', path: '/shopping' },
 		{ id: 3, src: '/qr.svg', alt: 'qr-generator', title: 'Generador de QR', path: '/qr-generator' },
-		{ id: 4, src: '/dw.svg', alt: 'yt-downloader', title: 'Youtube Downloader', path: '/yt-downloader' }
+		{
+			id: 4,
+			src: '/dw.svg',
+			alt: 'yt-downloader',
+			title: 'Youtube Downloader',
+			path: '/yt-downloader'
+		}
 	]);
 
 	let activeView: number | null = $state(null);
@@ -35,7 +41,7 @@
 
 	onMount(() => {
 		activeView = itemsShow[0].id;
-	})
+	});
 </script>
 
 <!-- <Cafe/> -->
@@ -80,7 +86,8 @@
 
 	{#if activeView === 3}
 		<QrGenerator />
-	<!-- {/if}{#if activeView === 4}
+	{/if}
+	<!-- {#if activeView === 4}
 		<YtDownloader />
 	{/if} -->
 </main>
@@ -94,7 +101,6 @@
 		grid-template-columns: 50px 1fr;
 
 		& nav {
-			
 			height: 100%;
 
 			& button.active {
