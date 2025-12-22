@@ -80,9 +80,9 @@
 
 	{#if activeView === 3}
 		<QrGenerator />
-	{/if}{#if activeView === 4}
+	<!-- {/if}{#if activeView === 4}
 		<YtDownloader />
-	{/if}
+	{/if} -->
 </main>
 
 <style>
