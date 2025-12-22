@@ -4,7 +4,6 @@ import path from 'path';
 const BIN_DIR = path.join(process.cwd(), 'node_modules', 'ytdlp-nodejs', 'bin');
 const BIN_PATH = path.join(BIN_DIR, 'yt-dlp');
 
-// Ensure bin directory exists
 if (!fs.existsSync(BIN_DIR)) {
     fs.mkdirSync(BIN_DIR, { recursive: true });
 }
@@ -19,6 +18,7 @@ const main = async () =>
 
     console.log('Downloading standalone yt-dlp binary for Linux...');
     const url = 'https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux';
+
 
     try {
         const response = await fetch(url);
